@@ -1,0 +1,52 @@
+
+
+<!-- <P>......{{aim}}</P> -->
+
+
+<div class="container col-md-12 main">
+
+    <div class="parent mt-5 ">
+        <div class="row left">
+            <div class=" col-md-6 ">
+                <form [formGroup]="loginForm" (ngSubmit)="login()" class="" onsubmit="">
+                   <div class="form-group col-md-6">
+                    <h1 class="text-center">Sign in</h1>
+                    <div class="mb-3">
+                        <input type="text" required="true" formControlName="acno" [value]="accno" class="form-control" id="accno" name="accno"
+                            placeholder="Enter your account number" (change)="acnoChange($event)">
+                    </div>
+
+                    <div *ngIf=" ( this.loginForm.get('acno')?.touched ||  this.loginForm.get('acno')?.dirty)  && this.loginForm.get('acno')?.errors     "  id="errors" >Invalid A/C Number</div>
+
+
+                    <div class="mb-3">
+                        <input type="password" required="true" formControlName="pswd" class="form-control" id="pwd" name="password"
+                            placeholder="Enter your password" (change)="pswdChange($event)">
+                    </div>
+
+                    <div *ngIf=" ( this.loginForm.get('pswd')?.touched ||  this.loginForm.get('pswd')?.dirty)  && this.loginForm.get('pswd')?.errors "  id="errors" >Invalid password</div>
+
+
+                    <button type="submit" class="btn btn-outline-primary col-md-12 col-sm-12 col-12 mb-3" > Login</button>
+                    <p style="color: black;" class="fs-6">Doesn't have an account? <a class="text-danger" routerLink='register' >Create an account!</a></p>
+                   </div>
+                   
+                </form>
+            </div>
+       
+            <div class="col-md-6 ">
+               <h3 class=""> Welcome Back  !</h3>
+                <div class="head text-center mt-5 ">  
+                    <h4>You Can Also Access Your Account Information Using Easy Services..</h4>
+                </div>
+                <div class="img">
+                    <img src="../assets/login2.gif" class="img-fluid" alt="" srcset="">
+                </div>
+         
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

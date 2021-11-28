@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+html,body{
+ 
+    /* background-image: url(./assets/) ; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    /* background: rgb(7, 7, 90); */
+    /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(31,31,140,1) 35%, rgba(0,212,255,1) 100%); */
+}

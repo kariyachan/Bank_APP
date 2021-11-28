@@ -1,0 +1,96 @@
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold text-info" href="#"><i class="fas fa-user"></i> Bank Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link active text-danger" aria-current="page" onclick="bank.home()">Home</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link active text-danger" aria-current="page"
+                            onclick="bank.balanceEnquiry()">Balance Enquiry</a>
+                    </li> -->
+                  
+
+                </ul>
+                <div class="d-flex me-5">
+                    <p class="fw-bold "> <i class="fas fa-user-clock "></i> <span class="text-info">Stay </span>
+                        Connected To Your Account <span class="text-danger">24/7</span> </p>
+                    <button class="btn btn-outline-info btn-sm ms-5" routerLink="">log out</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+      <h5 style="color:rgb(0, 174, 255); font-weight: bold;">Welcome {{userName}}</h5> 
+      <p>We Are Here For You..... Banking At Your Finger Tips</p>
+     </div>
+
+    <div class="container">  
+        <form id="contact" [formGroup]="depositForm" (ngSubmit)="deposit()">
+          <h3>Deposit Form</h3>
+          <fieldset>
+            <input placeholder="account number" name="accno" id="acno" formControlName="acno" type="text" tabindex="1" required autofocus>
+          </fieldset>
+
+
+          <div *ngIf=" ( this.depositForm.get('acno')?.touched ||  this.depositForm.get('acno')?.dirty)  && this.depositForm.get('acno')?.errors "  id="errors" >Invalid A/C Number</div>
+
+          <fieldset>
+            <input placeholder="password" name="pswd" id="psw" type="password" formControlName="pswd" tabindex="2" required autofocus>
+          </fieldset>
+
+          <div *ngIf=" ( this.depositForm.get('pswd')?.touched ||  this.depositForm.get('pswd')?.dirty)  && this.depositForm.get('pswd')?.errors "  id="errors" >Invalid Password</div>
+
+
+          <fieldset>
+            <input placeholder="amount" name="amount1" id="amount" type="text" formControlName="amount" tabindex="3" required autofocus>
+          </fieldset>
+
+          <div *ngIf=" ( this.depositForm.get('amount')?.touched ||  this.depositForm.get('amount')?.dirty)  && this.depositForm.get('amount')?.errors "  id="errors" >Invalid Amount</div>
+
+      
+          <fieldset>
+            <button name="submit" type="submit" >Deposit</button>
+          </fieldset>
+        </form>
+      </div>
+
+    <div class="container">  
+      <form id="contact" [formGroup]="withdrawalForm" (ngSubmit)="withdraw()">
+        <h3>Withdrawal Form</h3>
+        <fieldset>
+          <input placeholder="account number" type="text" name="accno" formControlName="acno1" tabindex="1" required autofocus>
+        </fieldset>
+
+        <div *ngIf=" ( this.withdrawalForm.get('acno1')?.touched ||  this.withdrawalForm.get('acno1')?.dirty)  && this.withdrawalForm.get('acno1')?.errors "  id="errors" >Invalid A/C Number</div>
+
+
+        <fieldset>
+          <input placeholder="password" type="password" name="password" formControlName="pswd1" tabindex="2" required>
+        </fieldset>
+
+        <div *ngIf=" ( this.withdrawalForm.get('pswd1')?.touched ||  this.withdrawalForm.get('pswd1')?.dirty)  && this.withdrawalForm.get('pswd1')?.errors "  id="errors" >Invalid Password</div>
+
+
+        <fieldset>
+          <input placeholder="amount" type="text" name="amount" formControlName="amount1" tabindex="3" required>
+        </fieldset>
+
+        <div *ngIf=" ( this.withdrawalForm.get('amount1')?.touched ||  this.withdrawalForm.get('amount1')?.dirty)  && this.withdrawalForm.get('amount1')?.errors "  id="errors" >Invalid Amount</div>
+
+    
+        <fieldset>
+          <button name="submit" type="submit">Withdraw</button>
+        </fieldset>
+      </form>
+    </div>
+
+</body>

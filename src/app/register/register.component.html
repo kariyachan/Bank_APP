@@ -1,0 +1,57 @@
+<body>
+    <div class="container col-md-12 ">
+        <div class="parent mt-5 ">
+            <div class="row left ">
+                <div class=" col-md-6 ">
+                    <form [formGroup]="registerForm" (ngSubmit)="register()" class="form-group col-md-6" onsubmit="event.preventDefault();bank.createAccount()">
+                        <h1 class="text-center mb-5">REGISTER HERE</h1>
+                        <div class="mb-3">
+                            <input type="text" required="true" class="form-control" formControlName="fname" id="fname" name="First Name"
+                                placeholder="Enter Your Full Name">
+                        </div>
+<!-- validation div of fname field -->
+                        <div *ngIf=" ( this.registerForm.get('fname')?.touched ||  this.registerForm.get('fname')?.dirty)  && this.registerForm.get('fname')?.errors "  id="errors" >Invalid Username</div>
+<!-- ............................. -->
+                        <div class="mb-3">
+                            <input type="text" required="true" class="form-control" id="acno" name="accno" formControlName="acno"
+                                placeholder="Enter your account number">
+                        </div>
+<!-- ........................................ -->
+                        <div *ngIf=" ( this.registerForm.get('acno')?.touched ||  this.registerForm.get('acno')?.dirty)  && this.registerForm.get('acno')?.errors "  id="errors" >Invalid Account Number</div>
+<!-- ................................ -->
+
+                        <div class="mb-3">
+                            <input type="password" required="true" class="form-control" id="pswd" name="password" formControlName="pswd"
+                                placeholder="Enter your password">
+                        </div>
+<!--  -->
+                        <div *ngIf=" ( this.registerForm.get('pswd')?.touched ||  this.registerForm.get('pswd')?.dirty)  && this.registerForm.get('pswd')?.errors "  id="errors" >password requires minimum 4 characters</div>
+<!-- .................................. -->
+
+                        <div class="mb-3">
+                            <input type="number" required="true" class="form-control" formControlName="balance" id="balance" name="balance" placeholder="$Amount">
+                        </div>
+<!-- ...................................... -->
+                        <div *ngIf=" ( this.registerForm.get('balance')?.touched ||  this.registerForm.get('balance')?.dirty)  && this.registerForm.get('balance')?.errors "  id="errors" >Enter A Valid Amount </div>
+
+
+                        <button type="submit" class="btn btn-outline-primary col-md-12 col-sm-12 col-xs-12 col-12 mb-3 " > Register</button>
+                        <p class="fs-6">Already have an account? <a  routerLink='' class="text-danger"  >Login</a></p>
+                    </form>
+                </div>
+                <div class="col-md-6 ">
+                    <h3 class=""> Welcomes You !</h3>
+                    <div class="head text-center ">
+                        <h4>We 're Here For You.. Banking at Your Finger Tips</h4>
+                    </div>
+                    <div class="img ">
+                        <img src="../assets/login1.gif" class="img-fluid" alt="" srcset="">
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
